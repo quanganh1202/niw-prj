@@ -1,0 +1,38 @@
+{
+  "name": "application-name",
+  "description": "lifeparser cms & generator feature build on NodeJS platform and multiple database.",
+  "main": "",
+  "authors": [
+    "Vietworm <lephuhai0511@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "react",
+    "nunjucks",
+    "redis",
+    "linux",
+    "jade",
+    "bootstrap",
+    "material",
+    "lifeparser",
+    "cms",
+    "generator"
+  ],
+  "moduleType": [],
+  "homepage": "http://100dayproject.org",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6"
+  }
+}

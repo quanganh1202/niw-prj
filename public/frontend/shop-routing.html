@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <title>Index</title>
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/jquery.timepicker.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/map-icons.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+</head>
+
+<body id="index-page">
+    <div id="n-map"></div>
+    <div class="container-index" id="main-content">
+        <!-- <ul id="main-menu">
+            <li class=""><a class="show-block active" data-block="add-new-order-content" href="#">Nhập đơn hàng</a></li>
+            <li><a class="show-block" href="#" data-block="pending-order-content">Đơn chờ giao</a></li>
+            <li><a class="show-block" data-block="checking-order-content" href="#">Đơn đang giao</a></li>
+            <li>
+                <a href="#" class="show-content-block">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+            </li>
+            <li class="right"><a href=""><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a></li>
+            <li class="right"><a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+        </ul> -->
+        <!-- order -->
+        <div id="routing-content">
+            <div id="content">
+                <div id="time-line">
+                    <div class="pos-left-150">
+                        <input type="text" class="date-routing datepicker-input" />
+                    </div>
+                </div>
+                <div id="routing-user">
+                    
+                </div>
+            </div>
+            <div id="routing-footer">
+                
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script>
+    window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="js/route-map/jquery.googlemap.js"></script>
+    <script src="js/map-icons.js"></script>
+    <script src="js/route-map/map.js"></script>
+
+
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/Datepair.js"></script>
+    <script src="js/jquery.datepair.js"></script>
+<script src="js/bootbox.min.js"></script>
+    <script src="js/customs.js"></script>
+    <script src="js/route-map/api.js"></script>
+    <script src="js/route-map/routing.js"></script>
+    <script type="text/javascript">
+    routing.int({page:'1'});
+    </script>
+    
+</body>
+
+</html>

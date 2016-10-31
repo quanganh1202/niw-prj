@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <title>Index</title>
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/jquery.timepicker.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+</head>
+
+<body id="index-page">
+    <div id="n-map"></div>
+   
+    <div class="container-index" id="main-content">
+        <ul id="main-menu">
+            <li class=""><a class="show-block active" data-block="add-new-order-content" href="#">Nhập đơn hàng</a></li>
+            <li><a class="show-block" href="#" data-block="pending-order-content">Đơn chờ giao</a></li>
+            <li><a class="show-block" data-block="checking-order-content" href="#">Đơn đang giao</a></li>
+            <li>
+                <a href="#" class="show-content-block">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+            </li>
+            <li class="right"><a href=""><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a></li>
+            <li class="right"><a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+        </ul>
+        <!-- order -->
+        <div id="add-new-order-content" class="block-content col-md-7 active">
+            <ul class="nav nav-tabs n-tabs" role="tablist">
+                <li role="presentation"><a href="#upload-csv" aria-controls="upload-csv" role="tab" data-toggle="tab">Upload file</a></li>
+                <li role="presentation" class="active"><a href="#add-new-order" aria-controls="add-new-order" role="tab" data-toggle="tab">Đơn hàng mới</a></li>
+            </ul>
+            <div class="tab-content n-tab-content">
+                <div role="tabpanel" class="tab-pane" id="upload-csv">
+                    1
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="add-new-order">
+                    <form class="form-horizontal n-form">
+                        <div class="form-group form-group-2">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Cửa hàng lấy hàng</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Cửa hàng 1</option>
+                                    <option>Cửa hàng 2</option>
+                                    <option>Cửa hàng 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-2">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Tên người nhận</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Tên người nhận">
+                            </div>
+                        </div>
+                        <div class="form-group form-group-2">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Địa chỉ</label>
+                            <div class="col-sm-9 ">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Địa chỉ">
+                            </div>
+                        </div>
+                        <div class="form-group form-group-4">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Số điện thoại</label>
+                            <div class="col-sm-9 ">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Số điện thoại">
+                            </div>
+                            <label for="inputPassword3" class="col-sm-3 control-label email-label">Email</label>
+                            <div class="col-sm-9 ">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group form-group-6 datepair-container">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Ngày</label>
+                            <div class="col-sm-4 ">
+                                <input type="text" class="form-control datepicker-input" id="inputPassword3" placeholder="">
+                            </div>
+                            <label for="inputPassword3" class="col-sm-3 control-label from-label">Từ</label>
+                            <div class="col-sm-2 ">
+                                <input type="text" class="form-control wickedpicker-input time start" id="inputPassword3" placeholder="Từ">
+                            </div>
+                            <label for="inputPassword3" class="col-sm-3 control-label to-label">Đến</label>
+                            <div class="col-sm-2 ">
+                                <input type="text" class="form-control wickedpicker-input time end" id="inputPassword3" placeholder="Đến">
+                            </div>
+                        </div>
+                        <div class="form-group form-group-2 products-area">
+                            <div class="main-products-area">
+                                <label for="inputPassword3" class="col-sm-3 control-label product-name-label">Tên sản phẩm</label>
+                                <div class="col-sm-9 ">
+                                    <div class="col-sm-5 no-padding">
+                                        <input type="text" class="form-control" id="inputPassword3" placeholder="">
+                                    </div>
+                                    <div class="col-sm-3 no-padding qty">
+                                        <label for="inputPassword3" class="control-label qty-label">Số Lượng</label>
+                                        <select>
+                                            <option>abd</option>
+                                            <option>abd</option>
+                                            <option>abddada</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3 no-padding volum">
+                                        <label for="inputPassword3" class="control-label volum-label">Kích thước</label>
+                                        <select>
+                                            <option>abd</option>
+                                            <option>abd</option>
+                                            <option>abd</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1 no-padding">
+                                        <a class="add-icon add-new-product" href="#">
+                                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                        </a>
+                                        <a class="add-icon remove-new-product" href="#">
+                                            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-2">
+                            <label for="inputPassword3" class="col-sm-3 control-label">Ghi chú</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="btn-group-bottom center">
+                        <button class="n-btn btn-cancel">Cancel</button>
+                        <button class="n-btn btn-ok">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pending-order-content" class="block-content col-md-7 ">
+            <div class="header-table col-md-12">
+                <div class="input-group">
+                    <input type="text" data-taget="#pending-order-table" class="form-control search-input" placeholder="Search for...">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default search-btn" type="button">Go!</button>
+                  </span>
+                </div>
+                <!-- /input-group -->
+            </div>
+            <div class="pending-order-content-table col-md-12 no-padding">
+                <table id="pending-order-table" class="n-table pending-order-table find-table">
+                    <thead>
+                        <tr>
+                            <th width="30">
+                                <input type="checkbox" />
+                            </th>
+                            <th width="100">ID</th>
+                            <th width="150">Cửa hàng</th>
+                            <th width="150">Khách hàng</th>
+                            <th>Địa chỉ giao</th>
+                            <th width="100">Giờ giao</th>
+                            <th width="30">-</th>
+                        </tr>
+                        <tr class="warning no-result">
+                            <td colspan="7"><i class="fa fa-warning"></i> No result</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>UDB259</td>
+                            <td>Cafe 123</td>
+                            <td>Thangdc</td>
+                            <td>Nhổn hà nội</td>
+                            <td>12h00-15h00</td>
+                            <td>
+                                <a class="extend-btn">
+                                    <span class="glyphicon glyphicon-chevron-down " aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="hidden-tr">
+                            <td colspan="4" class="vertical-top">
+                                <table class="col-md-12">
+                                    <tr>
+                                        <td>Sản phẩm</td>
+                                        <td>Số lượng</td>
+                                        <td>Giá tiền</td>
+                                        <td>Kích cỡ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cafe 1</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>bé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coca</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>Lớn</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td colspan="3">
+                                <p class="left">Điện thoại : <b>0974 675 294</b></p>
+                                <p class="left">Ghi chú</p>
+                                <blockquote class="left">ksjifjiwGigster connects you with SiliconValley based product </blockquote>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>UDB259</td>
+                            <td>Cafe 123</td>
+                            <td>Thangdc</td>
+                            <td>Nhổn hà nội</td>
+                            <td>12h00-15h00</td>
+                            <td>
+                                <a class="extend-btn">
+                                    <span class="glyphicon glyphicon-chevron-down " aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="hidden-tr">
+                            <td colspan="4" class="vertical-top">
+                                <table class="col-md-12">
+                                    <tr>
+                                        <td>Sản phẩm</td>
+                                        <td>Số lượng</td>
+                                        <td>Giá tiền</td>
+                                        <td>Kích cỡ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cafe 1</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>bé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coca</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>Lớn</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td colspan="3">
+                                <p class="left">Điện thoại : <b>0974 675 294</b></p>
+                                <p class="left">Ghi chú</p>
+                                <blockquote class="left">ksjifjiwGigster connects you with SiliconValley based product </blockquote>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>UDB259</td>
+                            <td>Cafe 123</td>
+                            <td>Thangdc</td>
+                            <td>Nhổn hà nội</td>
+                            <td>12h00-15h00</td>
+                            <td>
+                                <a class="extend-btn">
+                                    <span class="glyphicon glyphicon-chevron-down " aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="hidden-tr">
+                            <td colspan="4" class="vertical-top">
+                                <table class="col-md-12">
+                                    <tr>
+                                        <td>Sản phẩm</td>
+                                        <td>Số lượng</td>
+                                        <td>Giá tiền</td>
+                                        <td>Kích cỡ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cafe 1</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>bé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coca</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>Lớn</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td colspan="3">
+                                <p class="left">Điện thoại : <b>0974 675 294</b></p>
+                                <p class="left">Ghi chú</p>
+                                <blockquote class="left">ksjifjiwGigster connects you with SiliconValley based product </blockquote>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>UDB259</td>
+                            <td>Cafe 123</td>
+                            <td>Thangdc</td>
+                            <td>Nhổn hà nội</td>
+                            <td>12h00-15h00</td>
+                            <td>
+                                <a class="extend-btn">
+                                    <span class="glyphicon glyphicon-chevron-down " aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="hidden-tr">
+                            <td colspan="4" class="vertical-top">
+                                <table class="col-md-12">
+                                    <tr>
+                                        <td>Sản phẩm</td>
+                                        <td>Số lượng</td>
+                                        <td>Giá tiền</td>
+                                        <td>Kích cỡ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cafe 1</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>bé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coca</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>Lớn</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td colspan="3">
+                                <p class="left">Điện thoại : <b>0974 675 294</b></p>
+                                <p class="left">Ghi chú</p>
+                                <blockquote class="left">ksjifjiwGigster connects you with SiliconValley based product </blockquote>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn-group-bottom center">
+                <button class="n-btn btn-cancel">Delete</button>
+                <button class="n-btn btn-ok">CONTINUE ROUTING </button>
+            </div>
+        </div>
+        <div id="checking-order-content" class="block-content col-md-7 ">
+            <div class="header-table col-md-12">
+                <div class="input-group">
+                    <input type="text" data-taget="#checking-order-table" class="form-control search-input" placeholder="Search for...">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default search-btn" type="button">Go!</button>
+                  </span>
+                </div>
+                <!-- /input-group -->
+            </div>
+            <div class="pending-order-content-table col-md-12 no-padding">
+                <table id="checking-order-table" class="n-table pending-order-table find-table">
+                    <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th width="150">Cửa hàng</th>
+                            <th width="150">Khách hàng</th>
+                            <th>Địa chỉ giao</th>
+                            <th width="100">Tài xế</th>
+                            <th width="30">-</th>
+                        </tr>
+                        <tr class="warning no-result">
+                            <td colspan="6"><i class="fa fa-warning"></i> No result</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UDB259</td>
+                            <td>Cafe 123</td>
+                            <td>Thangdc</td>
+                            <td>Nhổn hà nội</td>
+                            <td>Nông Đức Mạnh</td>
+                            <td>
+                                <a class="extend-btn">
+                                    <span class="glyphicon glyphicon-chevron-down " aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="hidden-tr">
+                            <td colspan="3" class="vertical-top">
+                                <table class="col-md-12">
+                                    <tr>
+                                        <td>Sản phẩm</td>
+                                        <td>Số lượng</td>
+                                        <td>Giá tiền</td>
+                                        <td>Kích cỡ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cafe 1</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>bé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coca</td>
+                                        <td>2</td>
+                                        <td>100.000</td>
+                                        <td>Lớn</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="right margin-top-20">
+                                                <button class="n-btn btn-cancel mini-btn">Hủy</button>
+                                                <button class="n-btn btn-ok mini-btn">Theo dõi</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td colspan="3">
+                                <p class="left">Điện thoại : <b>0974 675 294</b></p>
+                                <p class="left">Ghi chú</p>
+                                <blockquote class="left">ksjifjiwGigster connects you with SiliconValley based product </blockquote>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script>
+    window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/route-map/jquery.googlemap.js"></script>
+    <script src="js/route-map/map.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/Datepair.js"></script>
+    <script src="js/jquery.datepair.js"></script>
+    <script src="js/customs.js"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>

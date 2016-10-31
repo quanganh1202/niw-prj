@@ -1,0 +1,86 @@
+{% extends 'default_layout.html' %}
+
+{% block cssExtends %}
+    <link rel="stylesheet" href="/libs/plugins/select2/plugin/select2.css">
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {{ toolbar|safe }}
+        <div class="box box-primary">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9">
+                        <div class="form-group">
+                            <label for="title">Username<span class="required">*</span></label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   value="{{ usr.username }}"
+                                   autocomplete="off" required="required">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">Password<span></span></label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   value="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">First name<span></span></label>
+                            <input type="text" class="form-control" name="first_name" id="first_name"
+                                   value="{{ usr.first_name }}">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">Last name<span></span></label>
+                            <input type="text" class="form-control" name="last_name" id="last_name"
+                                   value="{{ usr.last_name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="roles">Role</label>
+                            <select name="roles" id="roles"
+                                    class="form-control">
+                                    
+                                {% for roles in role %}
+                                {% if roles._id.toString() == usr.roles.toString() %}
+									  <option value="{{ roles._id }}" selected>{{ roles.name }}</option>
+								{% else %}
+								 	<option value="{{ roles._id }}" >{{ roles.name }}</option>
+                                 {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block jsExtends %}
+    <script src="/libs/plugins/ckeditor/_basic/ckeditor.js"></script>
+    <script src="/libs/plugins/select2/plugin/select2.min.js"></script>
+    <script>
+        var fileman = "/libs/fileman/dev.html?integration=ckeditor";
+
+        (function () {
+            /* BEGIN init ckeditor */
+            CKEDITOR.replace('content', {
+                height: 300,
+                filebrowserBrowseUrl: fileman,
+                filebrowserImageBrowseUrl: fileman + '&type=image',
+                removeDialogTabs: 'link:upload;image:upload;image:advanced;link:advanced'
+            });
+
+            CKEDITOR.replace('question_text', {
+                height: 100,
+                toolbar: [
+                    {name: 'basicstyles', items: ['Bold', 'Italic', 'Underline']}
+                ]
+            });
+
+
+            /* BEGIN init select2 */
+        })();
+    </script>
+{% endblock %}

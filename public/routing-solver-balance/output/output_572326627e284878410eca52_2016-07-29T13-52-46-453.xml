@@ -1,0 +1,56 @@
+<VrpTimeWindowedVehicleRoutingSolution id="1">
+  <id>0</id>
+  <name>Route</name>
+  <distanceType>ROUTE_DISTANCE</distanceType>
+  <distanceUnitOfMeasurement>km</distanceUnitOfMeasurement>
+  <locationList id="2">
+    <VrpRouteLocation id="3">
+      <id>57299215606db5a50e041ddf</id>
+      <name>57299215606db5a50e041ddf</name>
+      <latitude>21.028274</latitude>
+      <longitude>105.80265789999999</longitude>
+    </VrpRouteLocation>
+    <VrpRouteLocation id="4">
+      <id>5770adbbb6ba1eaa4b311b3f</id>
+      <name>O-GBQXXAI</name>
+      <latitude>51.647732</latitude>
+      <longitude>-3.985082000000034</longitude>
+    </VrpRouteLocation>
+  </locationList>
+  <depotList id="5">
+    <VrpTimeWindowedDepot id="6">
+      <id>DEPORT_1</id>
+      <location class="VrpRouteLocation" reference="3"/>
+      <readyTime>28800000</readyTime>
+      <dueTime>79200000</dueTime>
+    </VrpTimeWindowedDepot>
+  </depotList>
+  <vehicleList id="7">
+    <VrpVehicle id="8">
+      <id>57299233606db5a50e041de0</id>
+      <weightCapacity>1000</weightCapacity>
+      <volumeCapacity>100</volumeCapacity>
+      <normalSpeed>35</normalSpeed>
+      <trafficSpeed>25</trafficSpeed>
+      <dailySalary>200000</dailySalary>
+      <costPerKm>300</costPerKm>
+      <startTime>28800000</startTime>
+      <endTime>79200000</endTime>
+      <startRestTime>43200000</startRestTime>
+      <endRestTime>46800000</endRestTime>
+      <depot class="VrpTimeWindowedDepot" reference="6"/>
+      <departDeportTime>-1</departDeportTime>
+      <returnDeportTime>-1</returnDeportTime>
+      <workingTime>-1</workingTime>
+      <totalDistance>0</totalDistance>
+      <numberOfCustomer>0</numberOfCustomer>
+    </VrpVehicle>
+  </vehicleList>
+  <customerList id="9"/>
+  <numberOfNeedVehicle>1</numberOfNeedVehicle>
+  <totalOrderServe>0</totalOrderServe>
+  <totalWorkingTime>0</totalWorkingTime>
+  <totalDistance>0</totalDistance>
+  <type>1</type>
+  <score id="10">0hard/0soft</score>
+</VrpTimeWindowedVehicleRoutingSolution>

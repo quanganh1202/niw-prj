@@ -1,0 +1,140 @@
+/*
+ * Copyright 2012 JBoss Inc
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package tsp.solver;
+    dialect "java"
+
+import org.optaplanner.core.api.score.buildin.hardsoftlong.*;
+
+import vehiclerouting.domain.Depot;
+import vehiclerouting.domain.location.Location;
+import vehiclerouting.domain.Vehicle;
+import vehiclerouting.domain.VehicleRoutingSolution;
+import vehiclerouting.domain.Customer;
+import vehiclerouting.domain.timewindowed.TimeWindowedDepot;
+import vehiclerouting.domain.timewindowed.TimeWindowedVehicleRoutingSolution;
+import vehiclerouting.domain.timewindowed.TimeWindowedCustomer
+import vehiclerouting.domain.Vehicle;
+
+global HardSoftLongScoreHolder scoreHolder;
+
+// ############################################################################
+// Hard constraints
+// ############################################################################
+
+rule "vehicleValid"
+    when
+    	$customer: TimeWindowedCustomer(vehicle != null, isValid < 1, $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000 - $topPriority * 1);
+end
+
+rule "vehicleWeightCapacity"
+    when
+    	$customer: TimeWindowedCustomer(vehicle != null, currentWeight > vehicle.getWeightCapacity(), $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+end
+
+rule "vehicleWeightCapacityGreater0"
+    when
+    	$customer: TimeWindowedCustomer(vehicle != null, currentWeight < 0, $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+end
+
+rule "vehicleVolumeCapacity"
+    when
+    	$customer: TimeWindowedCustomer(vehicle != null, currentVolume > vehicle.getVolumeCapacity(), $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+end
+
+rule "vehicleVolumeCapacityGreater0"
+    when
+    	$customer: TimeWindowedCustomer(vehicle != null, currentVolume < 0, $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+end
+
+
+// ############################################################################
+// Soft constraints
+// ############################################################################
+
+rule "costTimeWorking"
+    when
+        $customer : TimeWindowedCustomer(vehicle != null, $vehile : vehicle, $time : getWorkingTimeToNextCustomer())
+    then
+        scoreHolder.addSoftConstraintMatch(kcontext, - $time);
+end
+
+rule "costTimeDepartFromDeport"
+    when
+        $customer : TimeWindowedCustomer( vehicle != null, $vehile : vehicle, $time : getWorkingTimeFromDeport())
+    then
+        scoreHolder.addSoftConstraintMatch(kcontext, - $time);
+end
+
+rule "costBaseSalary"
+   when
+       $vehicle : Vehicle(nextCustomer != null)
+   then
+       scoreHolder.addSoftConstraintMatch(kcontext, +  $vehicle.getDailySalary() / 1000);
+end
+
+rule "costPriorityCustomer"
+    when
+        $customer : Customer(previousStandstill != null, vehicle != null, $topPriority : topPriority)
+        not Customer(previousStandstill == $customer)
+    then
+        scoreHolder.addSoftConstraintMatch(kcontext, + $topPriority * 100);
+end
+
+// ############################################################################
+// TimeWindowed: extra hard constraints
+// ############################################################################
+
+rule "arrivalAfterDueTime"
+    when
+        TimeWindowedCustomer(vehicle != null, dueTime < arrivalTime, $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+end
+
+rule "arrivalBeforeReadyTime"
+    when
+        TimeWindowedCustomer(vehicle != null, readyTime > arrivalTime, $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+end
+
+rule "deportAfterWorkingTime"
+    when
+        TimeWindowedCustomer(vehicle != null, vehicle.getEndTime() <  getDepartTime(), $topPriority : topPriority)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+        scoreHolder.addSoftConstraintMatch(kcontext, - 1000000 - $topPriority * 1);
+end
+
+// Score constraint arrivalAfterDueTimeAtDepot is a build-in hard constraint in VehicleRoutingImporter

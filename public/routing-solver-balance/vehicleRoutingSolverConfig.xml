@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+  <!--<environmentMode>PRODUCTION</environmentMode>-->
+  <solutionClass>vehiclerouting.domain.VehicleRoutingSolution</solutionClass>
+  <entityClass>vehiclerouting.domain.Standstill</entityClass>
+  <entityClass>vehiclerouting.domain.Customer</entityClass>
+  <entityClass>vehiclerouting.domain.timewindowed.TimeWindowedCustomer</entityClass>
+
+  <scoreDirectorFactory>
+    <scoreDefinitionType>HARD_SOFT_LONG</scoreDefinitionType>
+    <!--<easyScoreCalculatorClass>vehiclerouting.solver.score.VehicleRoutingEasyScoreCalculator</easyScoreCalculatorClass>-->
+    <!--<incrementalScoreCalculatorClass>vehiclerouting.solver.score.VehicleRoutingIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
+    <scoreDrl>vehicleRoutingScoreRules.drl</scoreDrl>
+	<!--<scoreDrl>vehicleRoutingScoreRules.drl</scoreDrl>-->
+    <!--<assertionScoreDirectorFactory>-->
+      <!--<easyScoreCalculatorClass>vehiclerouting.solver.score.VehicleRoutingEasyScoreCalculator</easyScoreCalculatorClass>-->
+    <!--</assertionScoreDirectorFactory>-->
+    <initializingScoreTrend>ONLY_DOWN/ANY</initializingScoreTrend>
+  </scoreDirectorFactory>
+
+  <termination>
+    <secondsSpentLimit>960</secondsSpentLimit>
+  </termination>
+  <constructionHeuristic>
+    <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+  </constructionHeuristic>
+  <localSearch>
+    <unionMoveSelector>
+      <changeMoveSelector/>
+      <swapMoveSelector/>
+      <subChainChangeMoveSelector>
+        <selectReversingMoveToo>true</selectReversingMoveToo>
+      </subChainChangeMoveSelector>
+      <subChainSwapMoveSelector>
+        <selectReversingMoveToo>true</selectReversingMoveToo>
+      </subChainSwapMoveSelector>
+    </unionMoveSelector>
+    <acceptor>
+      <lateAcceptanceSize>400</lateAcceptanceSize>
+	  <entityTabuSize>7</entityTabuSize>
+    </acceptor>
+    <forager>
+      <acceptedCountLimit>4</acceptedCountLimit>
+	  <pickEarlyType>FIRST_BEST_SCORE_IMPROVING</pickEarlyType>
+    </forager>
+  </localSearch>
+</solver>

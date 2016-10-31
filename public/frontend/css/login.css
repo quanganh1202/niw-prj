@@ -1,0 +1,69 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #e9e9e9;
+}
+#logo {
+    text-align: center;
+}
+.form-signin {
+    max-width: 330px;
+    padding: 20px;
+    margin: 30px auto;
+    background: #fff;
+    box-shadow: 1px 1px 5px #ccc;
+}
+
+.form-signin .form-signin-heading {
+  margin-bottom: 15px;
+}
+.form-signin-heading{
+    margin: 10px 0;
+    text-align: center;
+    color: #414142
+}
+.form-signin label{
+    color: #414142;
+    font-size: 12px
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  border-radius: 0;
+  padding: 15px 10px;
+  margin-bottom: 20px;
+  border-radius: 2px
+}
+
+.form-signin input[type="password"] {
+  border-radius: 0;
+  padding: 15px 10px;    
+  margin-bottom: 20px;
+  border-radius: 2px
+}
+#login-btn{
+    background-color: #1f7edd;
+    border-color: #1f7edd;
+    border-radius: 2px
+}
+.forgot-password-link {
+    color: #414142;
+    margin: 10px 0;
+    display: inline-block;
+}

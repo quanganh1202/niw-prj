@@ -1,0 +1,151 @@
+<VrpTimeWindowedVehicleRoutingSolution id="1">
+  <id>0</id>
+  <name>Route</name>
+  <distanceType>ROUTE_DISTANCE</distanceType>
+  <distanceUnitOfMeasurement>km</distanceUnitOfMeasurement>
+  <locationList id="2">
+    <VrpRouteLocation id="3">
+      <id>57299215606db5a50e041ddf</id>
+      <name>57299215606db5a50e041ddf</name>
+      <latitude>21.015555</latitude>
+      <longitude>105.85152399999993</longitude>
+    </VrpRouteLocation>
+    <VrpRouteLocation id="4">
+      <id>573ac282d008fffc3502c8e9</id>
+      <name>O-LJ5RD09</name>
+      <latitude>21.028274</latitude>
+      <longitude>105.80265789999999</longitude>
+    </VrpRouteLocation>
+    <VrpRouteLocation id="5">
+      <id>573ac2a4d008fffc3502c8ea</id>
+      <name>O-60SSCKY</name>
+      <latitude>21.026131</latitude>
+      <longitude>105.84661000000006</longitude>
+    </VrpRouteLocation>
+    <VrpRouteLocation id="6">
+      <id>573ac2c9d008fffc3502c8eb</id>
+      <name>O-GBICUPC</name>
+      <latitude>21.032785</latitude>
+      <longitude>105.80192</longitude>
+    </VrpRouteLocation>
+    <VrpRouteLocation id="7">
+      <id>573ac2f8d008fffc3502c8ec</id>
+      <name>O-VFRT0WR</name>
+      <latitude>21.006612</latitude>
+      <longitude>105.82305300000007</longitude>
+    </VrpRouteLocation>
+  </locationList>
+  <depotList id="8">
+    <VrpTimeWindowedDepot id="9">
+      <id>DEPORT_1</id>
+      <location class="VrpRouteLocation" reference="3"/>
+      <readyTime>28800000</readyTime>
+      <dueTime>79200000</dueTime>
+    </VrpTimeWindowedDepot>
+  </depotList>
+  <vehicleList id="10">
+    <VrpVehicle id="11">
+      <id>57299233606db5a50e041de0</id>
+      <weightCapacity>1000</weightCapacity>
+      <volumeCapacity>100</volumeCapacity>
+      <normalSpeed>35</normalSpeed>
+      <trafficSpeed>25</trafficSpeed>
+      <dailySalary>200000</dailySalary>
+      <costPerKm>300</costPerKm>
+      <startTime>28800000</startTime>
+      <endTime>79200000</endTime>
+      <startRestTime>43200000</startRestTime>
+      <endRestTime>46800000</endRestTime>
+      <depot class="VrpTimeWindowedDepot" reference="9"/>
+      <departDeportTime>50008140</departDeportTime>
+      <returnDeportTime>53057520</returnDeportTime>
+      <workingTime>2745780</workingTime>
+      <totalDistance>17822274</totalDistance>
+      <numberOfCustomer>4</numberOfCustomer>
+      <nextCustomer class="VrpTimeWindowedCustomer" id="12">
+        <id>573ac2f8d008fffc3502c8ec</id>
+        <location class="VrpRouteLocation" reference="7"/>
+        <demandWeight>10.0</demandWeight>
+        <demandVolume>10.0</demandVolume>
+        <topPriority>0</topPriority>
+        <isServe>1</isServe>
+        <previousStandstill class="VrpVehicle" reference="11"/>
+        <nextCustomer class="VrpTimeWindowedCustomer" id="13">
+          <id>573ac2c9d008fffc3502c8eb</id>
+          <location class="VrpRouteLocation" reference="6"/>
+          <demandWeight>10.0</demandWeight>
+          <demandVolume>10.0</demandVolume>
+          <topPriority>0</topPriority>
+          <isServe>1</isServe>
+          <previousStandstill class="VrpTimeWindowedCustomer" reference="12"/>
+          <nextCustomer class="VrpTimeWindowedCustomer" id="14">
+            <id>573ac282d008fffc3502c8e9</id>
+            <location class="VrpRouteLocation" reference="4"/>
+            <demandWeight>10.0</demandWeight>
+            <demandVolume>10.0</demandVolume>
+            <topPriority>0</topPriority>
+            <isServe>1</isServe>
+            <previousStandstill class="VrpTimeWindowedCustomer" reference="13"/>
+            <nextCustomer class="VrpTimeWindowedCustomer" id="15">
+              <id>573ac2a4d008fffc3502c8ea</id>
+              <location class="VrpRouteLocation" reference="5"/>
+              <demandWeight>10.0</demandWeight>
+              <demandVolume>10.0</demandVolume>
+              <topPriority>0</topPriority>
+              <isServe>1</isServe>
+              <previousStandstill class="VrpTimeWindowedCustomer" reference="14"/>
+              <vehicle reference="11"/>
+              <readyTime>50580000</readyTime>
+              <dueTime>57780000</dueTime>
+              <serviceDuration>300000</serviceDuration>
+              <arrivalTime>52566047</arrivalTime>
+              <departTime>52866047</departTime>
+              <currentWeight>40.0</currentWeight>
+              <currentVolume>40.0</currentVolume>
+              <isValid>2</isValid>
+            </nextCustomer>
+            <vehicle reference="11"/>
+            <readyTime>50580000</readyTime>
+            <dueTime>57780000</dueTime>
+            <serviceDuration>300000</serviceDuration>
+            <arrivalTime>51725911</arrivalTime>
+            <departTime>52025911</departTime>
+            <currentWeight>30.0</currentWeight>
+            <currentVolume>30.0</currentVolume>
+            <isValid>2</isValid>
+          </nextCustomer>
+          <vehicle reference="11"/>
+          <readyTime>50580000</readyTime>
+          <dueTime>57780000</dueTime>
+          <serviceDuration>300000</serviceDuration>
+          <arrivalTime>51334284</arrivalTime>
+          <departTime>51634284</departTime>
+          <currentWeight>20.0</currentWeight>
+          <currentVolume>20.0</currentVolume>
+          <isValid>2</isValid>
+        </nextCustomer>
+        <vehicle reference="11"/>
+        <readyTime>50580000</readyTime>
+        <dueTime>57780000</dueTime>
+        <serviceDuration>300000</serviceDuration>
+        <arrivalTime>50580000</arrivalTime>
+        <departTime>50880000</departTime>
+        <currentWeight>10.0</currentWeight>
+        <currentVolume>10.0</currentVolume>
+        <isValid>2</isValid>
+      </nextCustomer>
+    </VrpVehicle>
+  </vehicleList>
+  <customerList id="16">
+    <VrpTimeWindowedCustomer reference="14"/>
+    <VrpTimeWindowedCustomer reference="15"/>
+    <VrpTimeWindowedCustomer reference="13"/>
+    <VrpTimeWindowedCustomer reference="12"/>
+  </customerList>
+  <numberOfNeedVehicle>0</numberOfNeedVehicle>
+  <totalOrderServe>4</totalOrderServe>
+  <totalWorkingTime>2745780</totalWorkingTime>
+  <totalDistance>17822274</totalDistance>
+  <type>1</type>
+  <score id="17">0hard/153soft</score>
+</VrpTimeWindowedVehicleRoutingSolution>
